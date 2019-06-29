@@ -1,6 +1,8 @@
 table{
   width: 30%;
+  margin: 0 auto;
   padding: 20px;
+  margin-top: 100px;
 }
 th, td {
   text-align: center;
@@ -13,4 +15,10 @@ tr:nth-child(even){
 th {
   background-color: #235a81;
   color: white;
+}
+.container_btn{
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
 }

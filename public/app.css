@@ -11106,24 +11106,50 @@ a.text-dark:focus {
   padding: 0;
 }
 
-header {
-  height: 100px;
-  width: 100%;
+.mt-100 {
+  margin-top: 100px;
 }
 
-body {
+header {
+  background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  font-size: 13px;
   display: -webkit-box;
   display: flex;
+  height: 10%;
+  width: 100%;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  padding: 0px 30px;
+}
+
+header .fas {
+  color: grey;
+}
+
+header img {
+  width: 80px;
+}
+
+header ul {
+  margin-bottom: 0;
+}
+
+header nav ul li {
+  display: inline-block;
+  padding: 0px 10px;
+  line-height: 50px;
 }
 
 table {
   width: 30%;
+  margin: 0 auto;
   padding: 20px;
+  margin-top: 100px;
 }
 
 th,
@@ -11140,5 +11166,12 @@ tr:nth-child(even) {
 th {
   background-color: #235a81;
   color: white;
+}
+
+.container_btn {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
 }
 

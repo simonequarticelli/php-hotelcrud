@@ -1,7 +1,7 @@
 <?php
-include 'layout/head.php';
+include 'layout/_head.php';
+include 'layout/_nav.php';
 
-// includo file contenente le pwd per la connessione
 include '_config.php';
 
 // Connect
@@ -11,8 +11,6 @@ if ($conn && $conn->connect_error) {
   echo ( "Connection failed: " . $conn->connect_error);
   exit();
 }
-// echo '<p>Connected successfully</p>';
-// phpinfo();
 
 // leggo in GET il parametro id della stanza
 $id_stanza = intval($_GET['id']);//<-- forzo con intval() a leggere un numero
@@ -31,11 +29,11 @@ $result = $conn->query($sql); //esegui questa istruzione
   <?php
   if ($result && $result->num_rows > 0) {
   // output data of each row
-  // prendi risultati e fai cose fino a che ce ne sono
+  // fetch_assoc() --> prendi risultati e fai cose fino a che ce ne sono
     while($row = $result->fetch_assoc()) { ?>
       <tr>
-        <td><?php echo $row['floor'] ?></td>
-        <td><?php echo $row['beds'] ?></td>
+        <td><?php echo $row['floor']?></td>
+        <td><?php echo $row['beds']?></td>
       </tr>
   <?php } ?>
 </table> <?php
@@ -44,10 +42,13 @@ $result = $conn->query($sql); //esegui questa istruzione
   } else {
     echo "query error";
   }
-  $conn->close();
 ?>
-<a href="index.php"><button type="button" name="button">ritorna alle stanze</button></a>
 
+<div class="container_btn">
+  <a href="index.php"><button type="button" name="button" class="btn btn-info btn-sm">ritorna alle stanze</button></a>
+</div>
+
+<!-- chiudo la connessione -->
 <?php $conn->close(); ?>
-</body>
-</html>
+
+<?php include 'layout/_footer.php' ?>

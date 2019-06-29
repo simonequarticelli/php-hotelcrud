@@ -5,7 +5,8 @@ usare il tag <table> :rolling_on_the_floor_laughing: ), magari potete aiutarvi
 con bootstrap, se vi fa piacere :wink: -->
 
 <?php
-// includo file contenente le pwd per la connessione
+include 'layout/_head.php';
+include 'layout/_nav.php';
 include '_config.php';
 
 // Connect
@@ -22,7 +23,7 @@ if ($conn && $conn->connect_error) {
 $sql = "SELECT room_number, id FROM stanze";
 $result = $conn->query($sql); //esegui questa istruzione
 
-include 'layout/head.php';
+
 ?>
 
 <table>
@@ -57,5 +58,4 @@ include 'layout/head.php';
     $conn->close();
     ?>
 
-  </body>
-</html>
+  <?php include 'layout/_footer.php' ?>

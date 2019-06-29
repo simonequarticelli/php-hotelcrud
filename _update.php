@@ -1,8 +1,7 @@
 <?php
-//includo parte sup html
-include 'layout/head.php';
 
-// includo file contenente le pwd per la connessione
+include 'layout/_head.php';
+include 'layout/_nav.php';
 include '_config.php';
 
 // Connect
@@ -23,12 +22,29 @@ if ($result && $result->num_rows > 0) {
 // prendi risultati e fai cose fino a che ce ne sono
   while($row = $result->fetch_assoc()) { ?>
 
-    <form action="_edit_manager.php" method="post">
-      <!-- hidden per inviare id nascosto -->
-      <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-      <input type="text" name="room_number" value="<?php echo $row['room_number'] ?>">
-      <input type="submit" value="salva">
-    </form>
+    <div class="row d-flex justify-content-center mt-100">
+      <div class="col-2">
+        <form action="_edit_manager.php" method="post">
+          <div class="form-group">
+            <!-- hidden per inviare id nascosto -->
+            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+            <label for="">Numero stanza</label>
+            <input type="text" class="form-control" name="room_number" value="<?php echo $row['room_number'] ?>">
+          </div>
+          <div class="form-group">
+            <label for="">Piano</label>
+            <input type="text" class="form-control" name="floor" value="<?php echo $row['floor'] ?>">
+          </div>
+          <div class="form-group">
+            <label for="">Letti</label>
+            <input type="text" class="form-control" name="beds" value="<?php echo $row['beds'] ?>">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salva</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
 <?php } ?>
  <?php
@@ -39,3 +55,5 @@ if ($result && $result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+<?php include 'layout/_footer.php' ?>
