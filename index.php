@@ -41,9 +41,9 @@ include 'layout/head.php';
         <td><?php echo $row['room_number'] ?></td>
         <td>
           <!-- compilo la querystring  -->
-          <a href="_show.php?id=<?php echo $row['id'] ?>"><button type="button" name="button">visualizza</button></a>
-          <a href="#"><button type="button" name="button">modifica</button></a>
-          <!-- <a href="#"><button type="button" name="button">cancella</button></a> -->
+          <a href="_show.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-info btn-sm">visualizza</button>
+          <a href="_update.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-primary btn-sm">modifica</button>
+          <a href="#"><button type="button" class="btn btn-danger btn-sm">cancella</button>
         </td>
       </tr>
 

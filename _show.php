@@ -48,6 +48,6 @@ $result = $conn->query($sql); //esegui questa istruzione
 ?>
 <a href="index.php"><button type="button" name="button">ritorna alle stanze</button></a>
 
-
+<?php $conn->close(); ?>
 </body>
 </html>
