@@ -5,8 +5,6 @@ include 'layout/_nav.php';
 
 include '_config.php';
 
-// print_r($_POST);
-
 // Connect
 $conn = new mysqli($servername, $username, $password, $dbname);
 // tento di fare la connessione se non va a buon fine esco
@@ -22,26 +20,34 @@ if (empty($_POST)) {
 }
 
 //salvo i dati ricevuti
-$id_stanza = intval($_POST['id']);
+//id in creazione non c'è!! --> il database lo aggiunge automaticamente <--
 $room_number = intval($_POST['room_number']);
 $floor = intval($_POST['floor']);
 $beds = intval($_POST['beds']);
 
-//query per aggiornare info stanza
-$sql = "UPDATE stanze SET room_number = $room_number, floor = $floor, beds = $beds, updated_at = NOW() WHERE id = $id_stanza";//<-- usare doppi apici per interpretare
-$result = $conn->query($sql); //esegui questa istruzione
+// var_dump($_POST);
+
+if ($room_number != 0 && $floor != 0 && $beds != 0) {
+  //query per creare la stanza
+  //QUERY DI INSERIMENTO
+  $sql = "INSERT INTO stanze (room_number, floor, beds, created_at, updated_at)
+          VALUES ($room_number, $floor, $beds, NOW(), NOW())";
+  $result = $conn->query($sql); //esegui questa istruzione
+  // var_dump($result);
+}
 
 ?>
-
 <div class="row">
   <div class="col-12 text-center">
     <?php if ($result){?>
-      <h5>MODIFICA EFFETTUATA CON SUCCESSO</h5>
+      <h5>STANZA <?php echo '<span>'.$room_number.'</span>' ?> CREATA CON SUCCESSO</h5>
     <?php }else { ?>
       <h5>SI E' VERIFICATO UN ERRORE</h5>
+      <a href="_create.php"><button type="button" name="button" class="btn btn-primary mt-3 btn-sm">Ritorna alla creazione</button></a>
+      <br>
     <?php } ?>
     <a href="index.php"><button type="button" name="button" class="btn btn-primary mt-3 btn-sm">Ritorna alle stanze</button></a>
   </div>
 </div>
 
-<?php include 'layout/_footer.php'; ?>
+<?php include 'layout/_footer.php' ?>

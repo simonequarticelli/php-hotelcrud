@@ -11106,8 +11106,32 @@ a.text-dark:focus {
   padding: 0;
 }
 
-.mt-100 {
-  margin-top: 100px;
+body {
+  margin-top: 70px;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.form-group {
+  display: inline-grid;
+}
+
+.form-group .btn {
+  margin: 5px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+span {
+  background-color: #f1c40f;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid grey;
 }
 
 header {
@@ -11117,7 +11141,7 @@ header {
   font-size: 13px;
   display: -webkit-box;
   display: flex;
-  height: 10%;
+  height: 7%;
   width: 100%;
   -webkit-box-pack: justify;
           justify-content: space-between;
@@ -11149,13 +11173,14 @@ table {
   width: 30%;
   margin: 0 auto;
   padding: 20px;
-  margin-top: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 th,
 td {
   text-align: center;
-  padding: 5px;
+  padding: 7px;
   border: 1px solid grey;
 }
 

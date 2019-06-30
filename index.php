@@ -27,9 +27,14 @@ $result = $conn->query($sql); //esegui questa istruzione
 ?>
 
 <table>
+
+  <div class="container_btn_create text-center">
+    <a href="_create.php"><button type="button" class="btn btn-secondary mt-100 btn-sm">CREA UNA STANZA</button>
+  </div>
+
   <tr>
     <th>Stanza n° <i class="fas fa-door-closed"></i></th>
-    <th>Actions</th>
+    <th>Actions <i class="fas fa-pencil-alt"></i></th>
   </tr>
 
   <?php
@@ -39,12 +44,12 @@ $result = $conn->query($sql); //esegui questa istruzione
   // prendi risultati e fai cose fino a che ce ne sono
     while($row = $result->fetch_assoc()) { ?>
       <tr>
-        <td><?php echo $row['room_number'] ?></td>
+        <td><span><?php echo $row['room_number'] ?></span></td>
         <td>
           <!-- compilo la querystring  -->
-          <a href="_show.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-info btn-sm">visualizza</button>
-          <a href="_update.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-primary btn-sm">modifica</button>
-          <a href="#"><button type="button" class="btn btn-danger btn-sm">cancella</button>
+          <a href="_show.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-info btn-sm">Visualizza</button>
+          <a href="_update.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-primary btn-sm">Modifica</button>
+          <a href="_delete.php?id=<?php echo $row['id']?>&room_number=<?php echo $row['room_number']?>"><button type="button" class="btn btn-danger btn-sm">Cancella</button>
         </td>
       </tr>
 
@@ -58,4 +63,4 @@ $result = $conn->query($sql); //esegui questa istruzione
     $conn->close();
     ?>
 
-  <?php include 'layout/_footer.php' ?>
+<?php include 'layout/_footer.php' ?>
