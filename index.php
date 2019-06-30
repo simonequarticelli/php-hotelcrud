@@ -8,6 +8,7 @@ con bootstrap, se vi fa piacere :wink: -->
 include 'layout/_head.php';
 include 'layout/_nav.php';
 include '_config.php';
+include 'layout/_footer.php';
 
 // Connect
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +23,6 @@ if ($conn && $conn->connect_error) {
 //eseguo la query
 $sql = "SELECT room_number, id FROM stanze";
 $result = $conn->query($sql); //esegui questa istruzione
-
 
 ?>
 
@@ -62,5 +62,3 @@ $result = $conn->query($sql); //esegui questa istruzione
     }
     $conn->close();
     ?>
-
-<?php include 'layout/_footer.php' ?>
